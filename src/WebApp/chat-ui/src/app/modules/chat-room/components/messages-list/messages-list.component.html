@@ -1,0 +1,30 @@
+<div class="messages-list-container">
+  <div
+    class="message-item"
+    *ngFor="let message of messages"
+  >
+    <div class="message-item-container">
+      <div class="message-item-icon-container">
+        <mat-icon >chat_bubble</mat-icon>
+      </div>
+      <div class="message-content">
+        <div class="message-sender">
+          <span>Sent by</span>
+          <span class="message-sender-name">
+            {{message.sentByName}}
+          </span>
+          <span>at</span>
+          <span>
+            {{message.sentAt | date: 'medium'}}
+          </span>
+        </div>
+        <div class="message-text">
+          <span>
+            {{message.text}}
+          </span>
+        </div>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+  </div>
+</div>

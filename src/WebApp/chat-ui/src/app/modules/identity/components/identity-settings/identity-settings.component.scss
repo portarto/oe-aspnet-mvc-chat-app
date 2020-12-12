@@ -1,0 +1,7 @@
+@import '~@angular/material/_theming.scss';
+@include mat-core();
+$primary: mat-palette($mat-indigo);
+
+.full-width {
+  width: 100%;
+}

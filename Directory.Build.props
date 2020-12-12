@@ -1,0 +1,36 @@
+<Project>
+
+  <PropertyGroup>
+    <RepositoryRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)'))</RepositoryRoot>
+    <RepositoryUrl>https://github.com/portarto/oe-aspnet-mvc-chat-app</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Authors>portarto</Authors>
+    <Company>Insomnia</Company>
+    <Copyright>Copyright © Insomnia. All rights reserved.</Copyright>
+    <Product>Insomnia ChatApp</Product>
+    <VersionSuffix Condition="'$(VersionSuffix)'!='' AND '$(BuildNumber)' != ''">$(VersionSuffix)-$(BuildNumber)</VersionSuffix>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <BinaryPath>$(RepositoryRoot)artifacts\</BinaryPath>
+    <DeployPath>$(RepositoryRoot)artifacts\Deploy\</DeployPath>
+    <OutputPath>$(BinaryPath)$(Configuration)\$(MSBuildProjectName)\</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <ToolsPath>$(RepositoryRoot).tools\</ToolsPath>
+    <NSwagExe>dotnet "$(ToolsPath)NSwag\NetCore31\dotnet-nswag.dll"</NSwagExe>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <MSBuildProjectOutputFiles Include="$(OutputPath)**\*.*" />
+    <MSBuildProjectImportFiles Include="Contents\Root\**\*" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+</Project>

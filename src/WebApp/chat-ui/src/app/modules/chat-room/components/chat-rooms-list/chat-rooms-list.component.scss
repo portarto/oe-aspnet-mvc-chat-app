@@ -1,0 +1,21 @@
+@import '~@angular/material/_theming.scss';
+@include mat-core();
+$primary: mat-palette($mat-indigo);
+
+.chat-rooms-list-container {
+  width: 100%;
+
+  .chat-room {
+    cursor: pointer;
+  }
+  .chat-room.selected {
+    background-color: mat-color($primary, 300) !important;
+  }
+  .chat-room:hover {
+    background-color: mat-color($primary, 100);
+  }
+  .chat-room:not(:hover) {
+    background-color: transparent;
+    transition: 0.3s;
+  }
+}

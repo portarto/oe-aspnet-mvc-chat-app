@@ -1,0 +1,54 @@
+@import '~@angular/material/_theming.scss';
+@include mat-core();
+$primary: mat-palette($mat-indigo);
+
+.messages-list-container {
+  height: 100%;
+
+  .message-item {
+    padding-left: 50px;
+    padding-right: 50px;
+    box-sizing: border-box;
+    height: initial !important;
+
+    .message-item-container {
+      display: flex;
+
+      .message-item-icon-container {
+        flex: 0 auto;
+        flex-shrink: 0;
+        width: 50px;
+        display: flex;
+        align-items: center;
+      }
+      .message-content {
+        padding: 10px;
+        flex: 1 auto;
+
+        .message-sender {
+          height: 10px;
+          line-height: 0px;
+          
+          span {
+            font-size: 10px;
+          }
+          .message-sender-name {
+            font-weight: bold ;
+          }
+        }
+        .message-text {
+          span {
+            white-space: pre-line;
+          }
+        }
+      }
+    }
+  }
+  .message-item:hover {
+    background-color: mat-color($primary, 50);
+  }
+  .message-item:not(:hover) {
+    background-color: transparent;
+    transition: 0.2s;
+  }
+}

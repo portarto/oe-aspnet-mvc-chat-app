@@ -1,0 +1,35 @@
+<div class="login-container">
+  <form [formGroup]="loginForm" novalidate (ngSubmit)="onLogin()">
+    <mat-card class="login-card">
+      <mat-card-header class="login-card-header">
+        <mat-card-title>Login</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Email" formControlName="email">
+              <mat-error *ngIf="loginForm.hasError('email', 'email') && loginForm.get('email').touched">
+                Email is <strong>invalid</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput type="password" placeholder="Password" formControlName="password">
+              <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
+                Password is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">Login</button>
+        <button style="float: right;" mat-raised-button type="submit" (click)="navToRegister()">Register</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>  
+</div>

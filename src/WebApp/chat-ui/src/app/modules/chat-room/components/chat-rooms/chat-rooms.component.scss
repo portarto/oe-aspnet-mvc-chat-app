@@ -1,0 +1,89 @@
+@import '~@angular/material/_theming.scss';
+@include mat-core();
+$primary: mat-palette($mat-indigo);
+$secondary: mat-palette($mat-pink);
+
+.chat-rooms-container {
+  height: 100%;
+
+  .sidenav-container {
+    height: 100%;
+
+    .sidenav {
+      height: 100%;
+
+      .rooms-list-container {
+        display: flex;
+        height: 100%;
+        flex-flow: column;
+        overflow: hidden;
+
+        .room-list-header {
+          height: 64px;
+          flex-shrink: 0;
+  
+          span {
+            flex: 1;
+          }
+        }
+        .rooms-list-content {
+          flex: 1 auto;
+          width: 300px;
+          overflow-y: scroll;
+        }
+      }
+    }
+    
+    .messages-view {
+      height: 100%;
+      position: relative;
+  
+      .messages-container {
+        display: flex;
+        flex-flow: column;
+        height: 100%;
+        
+        .messages-header {
+          display: flex;
+
+          span {
+            flex: 1 auto;
+          }
+          button {
+            background-color: mat-color($secondary, 600);
+          }
+        }
+        .messages-content {
+          flex: 1 auto;
+          overflow: hidden;
+          overflow-y: scroll;
+          scroll-behavior: smooth
+        }
+        .messages-footer {
+          padding: 10px;
+          height: 50px;
+          display: flex;
+          align-items: center;
+          flex-shrink: 0;
+
+          textarea {
+            font-family: Roboto, "Helvetica Neue", sans-serif;
+            margin-left: 20px; 
+            resize: none;
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    overflow-y: scroll;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: mat-color($primary, 500);
+  }
+}

@@ -1,0 +1,45 @@
+@import '~@angular/material/_theming.scss';
+@include mat-core();
+$primary: mat-palette($mat-indigo);
+$secondary: mat-palette($mat-pink);
+
+.add-participants-modal-container {
+  height: 600px;
+  display: flex;
+  flex-flow: column;
+
+  .add-participants-header {
+    flex-shrink: none;
+    height: 50px;
+    line-height: 50px;
+  }
+  .add-participants-content {
+    flex: 1 auto;
+    overflow: hidden;
+    overflow-y: scroll;
+
+    table {
+      width: 100%;
+      
+      .selected-row {
+        background-color: mat-color($secondary, 100);
+      }
+    }
+  }
+  .add-participants-footer {
+    padding: 10px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    overflow-y: scroll;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: mat-color($primary, 500);
+  }
+}

@@ -1,0 +1,52 @@
+<div class="chat-rooms-container">
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav
+        #drawer
+        fixedInViewport
+        class="sidenav"
+        [attr.role]="'navigation'"
+        [mode]="'side'"
+        [opened]="true"
+      >
+        <div class="rooms-list-container">
+          <mat-toolbar class="room-list-header">
+            <span>Rooms</span>
+            <button
+              mat-fab color="primary"
+              aria-label="Example icon button with a delete icon"
+              (click)="addNewRoom()"
+            >
+              <mat-icon>add</mat-icon>
+            </button>
+          </mat-toolbar>
+          <div class="rooms-list-content">
+            <app-chat-rooms-list [currentRoomId]="roomId" (roomChanged)="onRoomChanged($event)" ></app-chat-rooms-list>
+          </div>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content class="messages-view">
+      <div class="messages-container">
+        <div class="messages-header">    
+          <mat-toolbar color="primary">
+            <span>{{ currentRoom ? currentRoom.name : '' }}</span>
+            <button
+              mat-fab color="primary"
+              aria-label="Example icon button with a delete icon"
+              (click)="openIdentitySettings()"
+            >
+              <mat-icon>account_circle</mat-icon>
+            </button>
+          </mat-toolbar>
+        </div>
+        <div class="messages-content" #messagesContent>
+          <app-messages-list [currentRoomId]="roomId" ></app-messages-list>
+        </div>
+        <div class="messages-footer">
+          <button mat-raised-button color="primary" (click)="sendMessage()" [disabled]="!message || message.length === 0">Send</button>
+          <textarea [(ngModel)]='message'>                             
+          </textarea>
+        </div>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

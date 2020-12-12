@@ -1,0 +1,19 @@
+<div class="chat-rooms-list-container">
+  <mat-list>
+    <mat-list-item
+      class="chat-room"
+      *ngFor="let room of rooms"
+      (click)="onRoomChange(room)"
+      [ngClass]="{'selected': room.isSelected}"
+    >
+      <mat-icon mat-list-icon>chat_bubble</mat-icon>
+      <div mat-line>{{room.name}}</div>
+      <!--<div mat-line> {{room.updated | date}} </div>-->
+      <base-menu
+        [menuItems]="baseMenuItems"
+        [dataItem]="room"
+      ></base-menu>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  </mat-list>
+</div>

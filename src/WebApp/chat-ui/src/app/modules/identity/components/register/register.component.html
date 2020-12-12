@@ -1,0 +1,96 @@
+<div class="login-container">
+  <form [formGroup]="registerForm" novalidate (ngSubmit)="onRegister()">
+    <mat-card class="shipping-card">
+      <mat-card-header>
+        <mat-card-title>Register</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Email" formControlName="email">
+              <mat-error *ngIf="registerForm.hasError('email', 'email') && registerForm.get('email').touched">
+                Email is <strong>invalid</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Username" formControlName="username">
+              <mat-error *ngIf="registerForm.controls['username'].hasError('required')">
+                Username is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="First name" formControlName="firstName">
+              <mat-error *ngIf="registerForm.controls['firstName'].hasError('required')">
+                First name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Last name" formControlName="lastName">
+              <mat-error *ngIf="registerForm.controls['lastName'].hasError('required')">
+                Last name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input type="password" matInput placeholder="Password" formControlName="password">
+              <mat-error *ngIf="registerForm.controls['password'].hasError('required')">
+                Password is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input type="password" matInput placeholder="Confirm password" formControlName="confirmPassword">
+              <mat-error *ngIf="registerForm.controls['confirmPassword'].hasError('required')">
+                Password is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <mat-form-field appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="dateOfBirth" formControlName="dateOfBirth">
+            <mat-datepicker-toggle matSuffix [for]="dateOfBirth"></mat-datepicker-toggle>
+            <mat-datepicker #dateOfBirth></mat-datepicker>
+            <mat-error *ngIf="registerForm.controls['dateOfBirth'].hasError('required')">
+              Date of birth is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button 
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="!registerForm.valid"
+        >
+          Register
+        </button>
+        <button
+          style="float: right;"
+          mat-raised-button
+          type="submit"
+          (click)="navigateToLogin()"
+        >
+          Back to login
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </form>  
+</div>
