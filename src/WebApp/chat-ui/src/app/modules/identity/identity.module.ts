@@ -48,6 +48,6 @@ import { IdentitySettingsModalComponent } from './components/identity-settings/i
     MatNativeDateModule,
     MatRippleModule
   ],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA ]
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class IdentityModule {}

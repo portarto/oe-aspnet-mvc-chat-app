@@ -18,6 +18,6 @@ import { AddChatRoomParticipantsModal } from './components/modals/add-chat-room-
     SharedModule,
     AngularMaterialModule
   ],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA ]
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class ChatRoomModule {}
