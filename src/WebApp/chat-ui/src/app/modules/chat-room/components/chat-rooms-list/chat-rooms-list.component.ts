@@ -28,7 +28,7 @@ export class ChatRoomsListComponent implements OnInit{
   public roomChanged = new EventEmitter<ChatRoomModel>();
 
   public rooms: ChatRoomListItem[] = [];
-  public baseMenuItems = [{ 
+  public baseMenuItems: IBaseMenuModel[] = [{ 
       text: 'Rename Room',
       icon: 'edit',
       action: (item) => this.renameRoom(item)
